@@ -18,6 +18,18 @@
         <a href="./tienda.html">Tienda</a>
         <a href="./contacto.html">Contacto</a>
       </nav>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="container mobile" id="mobileMenu" hidden>
+      <a href="../index.html">Inicio</a>
+      <a href="./servicios.html">Servicios</a>
+      <a href="./referencias.html">Referencias</a>
+      <a href="./novedades.html">Novedades</a>
+      <a href="./tienda.html">Tienda</a>
+      <a href="./contacto.html">Contacto</a>
     </div>
   </header>
 
@@ -25,7 +37,7 @@
     <div class="container">
       <div class="section-head">
         <h2>Mini tienda</h2>
-        <p>Elige un producto y compra por WhatsApp (desde data/store.json).</p>
+        <p>Se actualiza editando <b>data/store.json</b>.</p>
       </div>
 
       <div class="store-toolbar">
@@ -37,9 +49,23 @@
       </div>
 
       <div class="store-grid" id="storeGrid"></div>
-      <div class="posts-note muted">*Se actualiza editando <b>data/store.json</b>.</div>
+
+      <div class="store-debug" id="storeDebug" hidden></div>
     </div>
   </section>
+
+  <footer class="footer">
+    <div class="container foot">
+      <div class="foot-left">
+        <div class="brand small"><span class="logo"></span><span>DM Streaming</span></div>
+        <div class="muted">© <span id="year"></span> DM Streaming.</div>
+      </div>
+      <div class="foot-right">
+        <a href="./novedades.html">Novedades</a>
+        <a href="./contacto.html">Contacto</a>
+      </div>
+    </div>
+  </footer>
 
   <script src="../script.js"></script>
 </body>
