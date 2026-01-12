@@ -22,6 +22,14 @@ a{color:inherit; text-decoration:none}
 .muted{color:var(--muted)}
 b{font-weight:700}
 
+/* ===== Helpers (móvil) ===== */
+.mobile-only{display:none !important;}
+.mobile-hide{display:initial;}
+@media (max-width: 900px){
+  .mobile-only{display:initial !important;}
+  .mobile-hide{display:none !important;}
+}
+
 /* Fondo */
 .bg{position:fixed; inset:0; z-index:-1; pointer-events:none}
 .blob{position:absolute; width:520px; height:520px; filter: blur(60px); opacity:.35; border-radius:999px}
@@ -59,12 +67,34 @@ b{font-weight:700}
 .hamburger{
   display:none;
   background:transparent; border:1px solid rgba(255,255,255,.16);
-  border-radius:12px; padding:10px; cursor:pointer;
+  border-radius:14px; padding:10px; cursor:pointer;
 }
 .hamburger span{display:block; width:18px; height:2px; background:var(--text); margin:4px 0; border-radius:999px}
-.mobile{display:none; padding:10px 0 16px}
-.mobile a{display:block; padding:12px 12px; border-radius:12px; color:var(--muted); font-weight:600}
+
+/* ===== Menú móvil (más limpio) ===== */
+.mobile{
+  display:none;
+  padding:10px 0 16px;
+}
+.mobile .mobile-links{
+  display:grid;
+  gap:8px;
+  margin-bottom:12px;
+}
+.mobile a{
+  display:block;
+  padding:12px 12px;
+  border-radius:14px;
+  color:var(--muted);
+  font-weight:800;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+}
 .mobile a:hover{background: rgba(255,255,255,.06); color:var(--text)}
+.mobile .mobile-cta{
+  display:grid;
+  gap:10px;
+}
 
 /* Botones */
 .btn{
@@ -72,7 +102,7 @@ b{font-weight:700}
   padding:12px 14px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.16);
-  font-weight:700;
+  font-weight:800;
   cursor:pointer;
   background: transparent;
   color: var(--text);
@@ -97,7 +127,7 @@ b{font-weight:700}
   background: rgba(255,255,255,.04);
   border-radius:999px;
   color:var(--muted);
-  font-weight:600;
+  font-weight:700;
   font-size:13px;
 }
 h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
@@ -118,7 +148,7 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   border-radius:12px; background: rgba(255,255,255,.06);
   border:1px solid rgba(255,255,255,.10);
 }
-.trust-title{font-weight:800; font-size:13px}
+.trust-title{font-weight:900; font-size:13px}
 .trust-sub{color:var(--muted); font-size:12px}
 
 /* Card */
@@ -130,13 +160,13 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   box-shadow: var(--shadow);
 }
 .card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:10px}
-.card-kicker{color:var(--muted); font-weight:700; font-size:12px}
-.card-title{font-weight:900; font-size:18px; margin-top:3px}
+.card-kicker{color:var(--muted); font-weight:800; font-size:12px}
+.card-title{font-weight:1000; font-size:18px; margin-top:3px}
 .badge{
   padding:6px 10px; border-radius:999px;
   background: rgba(94,240,255,.10);
   border:1px solid rgba(94,240,255,.18);
-  font-weight:800; font-size:12px;
+  font-weight:900; font-size:12px;
 }
 .card-list{margin:12px 0; border:1px solid rgba(255,255,255,.10); border-radius:16px; overflow:hidden}
 .row{display:flex; justify-content:space-between; gap:10px; padding:12px; border-bottom:1px solid rgba(255,255,255,.08); color:var(--muted)}
@@ -166,11 +196,11 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
 /* Referencias */
 .ref-box{display:grid; grid-template-columns: 1.2fr .8fr; gap:12px; border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); border-radius: 22px; padding:16px}
 .mini{border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.18); border-radius: 18px; padding:14px}
-.mini-title{font-weight:900; margin-bottom:8px}
+.mini-title{font-weight:1000; margin-bottom:8px}
 .mini-box{border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); border-radius: 14px; padding:12px; color:var(--muted)}
-.copy{margin-top:10px; width:100%; padding:10px 12px; border-radius: 14px; border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04); color:var(--text); font-weight:800; cursor:pointer}
+.copy{margin-top:10px; width:100%; padding:10px 12px; border-radius: 14px; border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04); color:var(--text); font-weight:900; cursor:pointer}
 .copy:hover{background: rgba(255,255,255,.06)}
-.copy-ok{margin-top:10px; color:rgba(94,240,255,.9); font-weight:800}
+.copy-ok{margin-top:10px; color:rgba(94,240,255,.9); font-weight:900}
 
 /* Novedades */
 .posts-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px}
@@ -178,8 +208,8 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
 .posts-grid{display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:12px}
 .post{border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); border-radius: var(--radius); padding:16px}
 .post-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:10px}
-.post-tag{padding:6px 10px; border-radius:999px; background: rgba(74,163,255,.12); border:1px solid rgba(74,163,255,.22); font-weight:900; font-size:12px}
-.post-date{color: rgba(233,238,251,.58); font-weight:800; font-size:12px}
+.post-tag{padding:6px 10px; border-radius:999px; background: rgba(74,163,255,.12); border:1px solid rgba(74,163,255,.22); font-weight:1000; font-size:12px}
+.post-date{color: rgba(233,238,251,.58); font-weight:900; font-size:12px}
 .post h3{margin:0 0 6px}
 .post p{margin:0 0 12px; color:var(--muted)}
 .posts-note{margin-top:12px; font-size:12.5px}
@@ -190,18 +220,18 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
 .contact-card:hover{background: rgba(255,255,255,.05)}
 .cc-top{display:flex; align-items:center; gap:10px}
 .cc-ic{width:34px; height:34px; display:grid; place-items:center; border-radius:12px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10)}
-.cc-sub{margin-top:10px; color:var(--muted); font-weight:800}
+.cc-sub{margin-top:10px; color:var(--muted); font-weight:900}
 
 /* Footer */
 .footer{padding:26px 0 34px; border-top:1px solid rgba(255,255,255,.08); background: rgba(7,11,20,.55); backdrop-filter: blur(10px)}
 .foot{display:flex; align-items:center; justify-content:space-between; gap:14px}
-.foot-right{display:flex; gap:14px; color:var(--muted); font-weight:700}
+.foot-right{display:flex; gap:14px; color:var(--muted); font-weight:800}
 .foot-right a:hover{color:var(--text)}
 
 /* ===== TIENDA ===== */
 .store-toolbar{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap}
 .store-filters{display:flex; gap:8px; flex-wrap:wrap}
-.filter{padding:10px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04); color: var(--text); font-weight:900; cursor:pointer}
+.filter{padding:10px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04); color: var(--text); font-weight:1000; cursor:pointer}
 .filter:hover{background: rgba(255,255,255,.06)}
 .filter.active{border-color: rgba(94,240,255,.28); background: linear-gradient(90deg, rgba(94,240,255,.18), rgba(74,163,255,.18))}
 .store-search{display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius: 14px; border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04)}
@@ -289,18 +319,8 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   font-weight:1000;
   white-space:nowrap;
 }
-.store-debug{
-  margin-top:12px;
-  padding:12px;
-  border-radius: 14px;
-  border:1px solid rgba(255,100,100,.22);
-  background: rgba(255,100,100,.08);
-  color: rgba(255,220,220,.95);
-  font-weight:800;
-  font-size:12.5px;
-}
 
-/* ===== Banner superior (novedad más reciente) ===== */
+/* ===== Banner superior (compacto en móvil) ===== */
 .top-banner{
   position:sticky;
   top:64px;
@@ -333,7 +353,7 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   white-space:nowrap;
 }
 .banner-title{
-  font-weight:800;
+  font-weight:900;
   color: rgba(233,238,251,.9);
   white-space:nowrap;
   overflow:hidden;
@@ -376,20 +396,48 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   color: rgba(233,238,251,.95);
 }
 
-/* Responsive */
+/* ===== Responsive: ajustes fuertes solo en móvil ===== */
 @media (max-width: 900px){
-  .hero-grid{grid-template-columns:1fr}
-  .trust{grid-template-columns:1fr}
+  .container{padding:0 14px}
+
+  /* Header */
+  .menu{display:none}
+  .hamburger{display:inline-block}
+  .mobile{display:block}
+
+  /* Menú móvil: menos alto y más usable */
+  .mobile{
+    padding:12px 0 14px;
+  }
+  .mobile .mobile-links a{
+    font-size:16px;
+  }
+
+  /* Hero: menos “pesado” y CTA claro */
+  .hero{padding:22px 0 10px}
+  .hero-grid{grid-template-columns:1fr; gap:14px}
+  h1{font-size:36px; line-height:1.04}
+  .lead{font-size:15px}
+  .pill{font-size:12.5px}
+
+  /* CTA: en móvil solo 2 botones grandes (si usas clases) */
+  .cta-row{gap:10px}
+  .cta-row .btn{width:100%}
+
+  /* Trust: 1 columna */
+  .trust{grid-template-columns:1fr; margin-top:12px}
+
+  /* Cards / grids: 1 columna */
   .cards{grid-template-columns:1fr}
   .ref-box{grid-template-columns:1fr}
   .posts-grid{grid-template-columns:1fr}
   .store-grid{grid-template-columns:1fr}
-  h1{font-size:40px}
-  .menu{display:none}
-  .hamburger{display:inline-block}
-  .mobile{display:block}
-  .store-search input{min-width:160px;}
   .contact-cards{grid-template-columns:1fr}
-  .banner-title{max-width:56vw}
+
+  /* Banner: más compacto */
+  .banner-title{max-width:48vw}
+  .banner-btn{padding:10px 12px}
+
+  /* WhatsApp float: solo icono */
   .wa-txt{display:none}
 }
