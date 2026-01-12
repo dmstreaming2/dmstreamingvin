@@ -18,7 +18,6 @@ function waLink(message) {
 
 /* ===== Base URL para data/ (root vs pages/) ===== */
 function dataUrl(filename) {
-  // si estás en /pages/, sube un nivel
   const inPages = location.pathname.includes("/pages/");
   return (inPages ? `../data/${filename}` : `./data/${filename}`);
 }
@@ -30,6 +29,9 @@ function setWhatsAppLinks() {
     const el = document.getElementById(id);
     if (el) el.href = url;
   });
+
+  const float = document.getElementById("waFloat");
+  if (float) float.href = url;
 }
 
 function setYear() {
@@ -92,16 +94,21 @@ function formatDate(iso) {
   }
 }
 
-async function loadPosts() {
+async function fetchPosts() {
+  const res = await fetch(`${dataUrl("posts.json")}?v=${Date.now()}`);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const posts = await res.json();
+  if (!Array.isArray(posts)) return [];
+  posts.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  return posts;
+}
+
+async function loadPostsPage() {
   const grid = document.getElementById("postsGrid");
-  if (!grid) return; // solo en novedades
+  if (!grid) return;
 
   try {
-    const res = await fetch(`${dataUrl("posts.json")}?v=${Date.now()}`);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const posts = await res.json();
-
-    posts.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+    const posts = await fetchPosts();
 
     grid.innerHTML = posts.map((p) => {
       const tag = escapeHtml(p.tag || "Novedad");
@@ -131,6 +138,37 @@ async function loadPosts() {
         <p>Revisa <b>data/posts.json</b>. Error: ${escapeHtml(e?.message || e)}</p>
       </article>
     `;
+  }
+}
+
+/* ===== Banner automático (novedad más reciente) ===== */
+async function loadTopBanner() {
+  const banner = document.getElementById("topBanner");
+  if (!banner) return;
+
+  try {
+    const posts = await fetchPosts();
+    if (!posts.length) return;
+
+    const p = posts[0];
+    const tag = document.getElementById("bannerTag");
+    const title = document.getElementById("bannerTitle");
+    const cta = document.getElementById("bannerCta");
+
+    if (tag) tag.textContent = p.tag || "Novedad";
+    if (title) title.textContent = p.title || "Actualización";
+
+    const url = p.cta_url || waLink(defaultMsg);
+    const text = p.cta_text || "Ver";
+
+    if (cta) {
+      cta.textContent = text;
+      cta.href = url;
+    }
+
+    banner.hidden = false;
+  } catch {
+    // si falla, simplemente no mostramos banner
   }
 }
 
@@ -197,13 +235,22 @@ function applyStoreFilters(items) {
   return out;
 }
 
+function resolveImagePath(path) {
+  // Si es URL absoluta, se deja
+  if (/^https?:\/\//i.test(path || "")) return path;
+
+  // Si viene "../assets/..." desde store.json, ya está OK (tienes tienda en /pages/)
+  return path || "";
+}
+
 function renderStoreItem(p) {
   const name = escapeHtml(p.name || "Producto");
   const desc = escapeHtml(p.desc || "");
   const badge = escapeHtml(p.badge || "");
   const category = escapeHtml(p.category || "Otros");
   const stock = escapeHtml(p.stock_label || "");
-  const img = escapeHtml(p.image || "");
+  const imgRaw = p.image || "";
+  const img = escapeHtml(resolveImagePath(imgRaw));
   const priceLabel = escapeHtml(p.currency_label || "Consultar");
 
   const msg = p.message || `Hola, quiero comprar: ${p.name || "Producto"}`;
@@ -265,7 +312,7 @@ function setupStoreSearch() {
 
 async function loadStore() {
   const grid = document.getElementById("storeGrid");
-  if (!grid) return; // solo en tienda.html
+  if (!grid) return;
 
   const debug = document.getElementById("storeDebug");
 
@@ -288,7 +335,7 @@ async function loadStore() {
       <article class="store-item">
         <div class="store-name">Mini tienda no disponible</div>
         <div class="store-desc">No se pudo cargar <b>data/store.json</b>.</div>
-        <a class="btn soft full" href="${waLink("Hola, quiero info de streaming. ¿Me pasas opciones?")}" target="_blank" rel="noreferrer">
+        <a class="btn soft full" href="${waLink(defaultMsg)}" target="_blank" rel="noreferrer">
           Pedir opciones por WhatsApp
         </a>
       </article>
@@ -305,5 +352,7 @@ setWhatsAppLinks();
 setYear();
 mobileMenu();
 copyMessage();
-loadPosts();
+loadPostsPage();
+loadTopBanner();
 loadStore();
+
