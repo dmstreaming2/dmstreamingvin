@@ -2,7 +2,7 @@
   --bg: #070b14;
   --text: #e9eefb;
   --muted: rgba(233,238,251,.72);
-  --blue: #4aa3ff;
+  --blue: #4: #4aa3ff;
   --cyan: #5ef0ff;
   --shadow: 0 20px 60px rgba(0,0,0,.45);
   --radius: 18px;
@@ -20,15 +20,7 @@ body{
 .container{max-width:1100px; margin:0 auto; padding:0 18px}
 a{color:inherit; text-decoration:none}
 .muted{color:var(--muted)}
-b{font-weight:700}
-
-/* ===== Helpers (móvil) ===== */
-.mobile-only{display:none !important;}
-.mobile-hide{display:initial;}
-@media (max-width: 900px){
-  .mobile-only{display:initial !important;}
-  .mobile-hide{display:none !important;}
-}
+b{font-weight:800}
 
 /* Fondo */
 .bg{position:fixed; inset:0; z-index:-1; pointer-events:none}
@@ -52,48 +44,37 @@ b{font-weight:700}
   background: rgba(7,11,20,.55);
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
-.nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-.brand{display:flex; align-items:center; gap:10px; font-weight:700}
+.nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; flex-wrap:wrap}
+.brand{display:flex; align-items:center; gap:10px; font-weight:900}
 .brand.small{font-size:14px}
 .logo{
   width:28px; height:28px; border-radius:10px;
   background: radial-gradient(circle at 30% 30%, var(--cyan), var(--blue));
   box-shadow: 0 10px 30px rgba(74,163,255,.22);
 }
-.menu{display:flex; gap:18px; color:var(--muted); font-weight:600}
-.menu a{padding:8px 10px; border-radius:10px}
-.menu a:hover{background: rgba(255,255,255,.06); color:var(--text)}
 
-.hamburger{
-  display:none;
-  background:transparent; border:1px solid rgba(255,255,255,.16);
-  border-radius:14px; padding:10px; cursor:pointer;
-}
-.hamburger span{display:block; width:18px; height:2px; background:var(--text); margin:4px 0; border-radius:999px}
-
-/* ===== Menú móvil (más limpio) ===== */
-.mobile{
-  display:none;
-  padding:10px 0 16px;
-}
-.mobile .mobile-links{
-  display:grid;
-  gap:8px;
-  margin-bottom:12px;
-}
-.mobile a{
-  display:block;
-  padding:12px 12px;
-  border-radius:14px;
+/* ✅ MENU SIEMPRE VISIBLE */
+.menu{
+  display:flex;
+  gap:10px;
   color:var(--muted);
   font-weight:800;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
+  flex-wrap:wrap;
+  justify-content:flex-end;
 }
-.mobile a:hover{background: rgba(255,255,255,.06); color:var(--text)}
-.mobile .mobile-cta{
-  display:grid;
-  gap:10px;
+.menu a{
+  padding:8px 10px;
+  border-radius:12px;
+  border:1px solid transparent;
+}
+.menu a:hover{
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+}
+.menu a.active{
+  color: var(--text);
+  background: rgba(255,255,255,.06);
+  border-color: rgba(94,240,255,.18);
 }
 
 /* Botones */
@@ -102,7 +83,7 @@ b{font-weight:700}
   padding:12px 14px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.16);
-  font-weight:800;
+  font-weight:900;
   cursor:pointer;
   background: transparent;
   color: var(--text);
@@ -127,7 +108,7 @@ b{font-weight:700}
   background: rgba(255,255,255,.04);
   border-radius:999px;
   color:var(--muted);
-  font-weight:700;
+  font-weight:800;
   font-size:13px;
 }
 h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
@@ -148,7 +129,7 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   border-radius:12px; background: rgba(255,255,255,.06);
   border:1px solid rgba(255,255,255,.10);
 }
-.trust-title{font-weight:900; font-size:13px}
+.trust-title{font-weight:1000; font-size:13px}
 .trust-sub{color:var(--muted); font-size:12px}
 
 /* Card */
@@ -160,13 +141,13 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   box-shadow: var(--shadow);
 }
 .card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:10px}
-.card-kicker{color:var(--muted); font-weight:800; font-size:12px}
+.card-kicker{color:var(--muted); font-weight:900; font-size:12px}
 .card-title{font-weight:1000; font-size:18px; margin-top:3px}
 .badge{
   padding:6px 10px; border-radius:999px;
   background: rgba(94,240,255,.10);
   border:1px solid rgba(94,240,255,.18);
-  font-weight:900; font-size:12px;
+  font-weight:1000; font-size:12px;
 }
 .card-list{margin:12px 0; border:1px solid rgba(255,255,255,.10); border-radius:16px; overflow:hidden}
 .row{display:flex; justify-content:space-between; gap:10px; padding:12px; border-bottom:1px solid rgba(255,255,255,.08); color:var(--muted)}
@@ -193,18 +174,19 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
 .feature h3{margin:0 0 6px}
 .feature p{margin:0; color:var(--muted)}
 
-/* Referencias */
-.ref-box{display:grid; grid-template-columns: 1.2fr .8fr; gap:12px; border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); border-radius: 22px; padding:16px}
-.mini{border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.18); border-radius: 18px; padding:14px}
-.mini-title{font-weight:1000; margin-bottom:8px}
-.mini-box{border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); border-radius: 14px; padding:12px; color:var(--muted)}
-.copy{margin-top:10px; width:100%; padding:10px 12px; border-radius: 14px; border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04); color:var(--text); font-weight:900; cursor:pointer}
-.copy:hover{background: rgba(255,255,255,.06)}
-.copy-ok{margin-top:10px; color:rgba(94,240,255,.9); font-weight:900}
+/* Boxes */
+.box{
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  border-radius: 22px;
+  padding:16px;
+}
+.box h2{margin:0 0 10px}
+.box p{margin:0 0 10px; color:var(--muted)}
+.list{margin:0; padding-left:18px; color:var(--muted)}
+.list li{margin:8px 0}
 
 /* Novedades */
-.posts-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px}
-.posts-actions{display:flex; gap:10px; flex-wrap:wrap}
 .posts-grid{display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:12px}
 .post{border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); border-radius: var(--radius); padding:16px}
 .post-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:10px}
@@ -212,23 +194,8 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
 .post-date{color: rgba(233,238,251,.58); font-weight:900; font-size:12px}
 .post h3{margin:0 0 6px}
 .post p{margin:0 0 12px; color:var(--muted)}
-.posts-note{margin-top:12px; font-size:12.5px}
 
-/* Contacto */
-.contact-cards{display:grid; gap:10px; grid-template-columns: repeat(2, minmax(0,1fr)); margin:16px 0 12px}
-.contact-card{border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); border-radius: var(--radius); padding:14px}
-.contact-card:hover{background: rgba(255,255,255,.05)}
-.cc-top{display:flex; align-items:center; gap:10px}
-.cc-ic{width:34px; height:34px; display:grid; place-items:center; border-radius:12px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10)}
-.cc-sub{margin-top:10px; color:var(--muted); font-weight:900}
-
-/* Footer */
-.footer{padding:26px 0 34px; border-top:1px solid rgba(255,255,255,.08); background: rgba(7,11,20,.55); backdrop-filter: blur(10px)}
-.foot{display:flex; align-items:center; justify-content:space-between; gap:14px}
-.foot-right{display:flex; gap:14px; color:var(--muted); font-weight:800}
-.foot-right a:hover{color:var(--text)}
-
-/* ===== TIENDA ===== */
+/* Tienda */
 .store-toolbar{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap}
 .store-filters{display:flex; gap:8px; flex-wrap:wrap}
 .filter{padding:10px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04); color: var(--text); font-weight:1000; cursor:pointer}
@@ -274,7 +241,6 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   overflow:hidden;
 }
 .store-logo img{width:72%; height:72%; object-fit:contain; filter: drop-shadow(0 10px 18px rgba(0,0,0,.35))}
-.store-logo-fallback{width:18px; height:18px; border-radius: 6px; background: linear-gradient(90deg, rgba(94,240,255,.35), rgba(74,163,255,.35))}
 .store-headtext{flex: 1 1 auto; min-width:0}
 .store-name{font-weight:1000; font-size:16px; line-height:1.15}
 .store-meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
@@ -291,16 +257,6 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
 .badge-offer{border-color: rgba(255,204,102,.28); background: rgba(255,204,102,.12)}
 .badge-promo{border-color: rgba(180,120,255,.28); background: rgba(180,120,255,.12)}
 .badge-default{border-color: rgba(74,163,255,.22); background: rgba(74,163,255,.12)}
-.store-cat{
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.04);
-  font-weight:900;
-  font-size:12px;
-  color: var(--muted);
-}
 .store-stock{
   display:inline-block;
   padding:6px 10px;
@@ -320,7 +276,7 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   white-space:nowrap;
 }
 
-/* ===== Banner superior (compacto en móvil) ===== */
+/* Banner superior */
 .top-banner{
   position:sticky;
   top:64px;
@@ -362,7 +318,7 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
 }
 .banner-btn{white-space:nowrap}
 
-/* ===== Botón flotante WhatsApp ===== */
+/* WhatsApp float */
 .wa-float{
   position:fixed;
   right:16px;
@@ -391,53 +347,42 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   background: rgba(94,240,255,.12);
   border:1px solid rgba(94,240,255,.18);
 }
-.wa-txt{
-  font-weight:1000;
-  color: rgba(233,238,251,.95);
-}
+.wa-txt{font-weight:1000; color: rgba(233,238,251,.95)}
 
-/* ===== Responsive: ajustes fuertes solo en móvil ===== */
+/* Footer */
+.footer{padding:26px 0 34px; border-top:1px solid rgba(255,255,255,.08); background: rgba(7,11,20,.55); backdrop-filter: blur(10px)}
+.foot{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap}
+.foot-right{display:flex; gap:14px; color:var(--muted); font-weight:800; flex-wrap:wrap}
+.foot-right a:hover{color:var(--text)}
+
+/* ✅ Responsive: mismo menú, pero mejor en móvil */
 @media (max-width: 900px){
   .container{padding:0 14px}
-
-  /* Header */
-  .menu{display:none}
-  .hamburger{display:inline-block}
-  .mobile{display:block}
-
-  /* Menú móvil: menos alto y más usable */
-  .mobile{
-    padding:12px 0 14px;
-  }
-  .mobile .mobile-links a{
-    font-size:16px;
-  }
-
-  /* Hero: menos “pesado” y CTA claro */
   .hero{padding:22px 0 10px}
   .hero-grid{grid-template-columns:1fr; gap:14px}
   h1{font-size:36px; line-height:1.04}
   .lead{font-size:15px}
   .pill{font-size:12.5px}
 
-  /* CTA: en móvil solo 2 botones grandes (si usas clases) */
   .cta-row{gap:10px}
   .cta-row .btn{width:100%}
 
-  /* Trust: 1 columna */
   .trust{grid-template-columns:1fr; margin-top:12px}
-
-  /* Cards / grids: 1 columna */
   .cards{grid-template-columns:1fr}
-  .ref-box{grid-template-columns:1fr}
   .posts-grid{grid-template-columns:1fr}
   .store-grid{grid-template-columns:1fr}
-  .contact-cards{grid-template-columns:1fr}
 
-  /* Banner: más compacto */
+  /* Menú: se acomoda mejor en móvil */
+  .menu{
+    width:100%;
+    justify-content:flex-start;
+  }
+  .menu a{
+    padding:10px 12px;
+    background: rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.08);
+  }
+
   .banner-title{max-width:48vw}
-  .banner-btn{padding:10px 12px}
-
-  /* WhatsApp float: solo icono */
   .wa-txt{display:none}
 }
