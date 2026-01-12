@@ -300,22 +300,6 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   font-size:12.5px;
 }
 
-/* Responsive */
-@media (max-width: 900px){
-  .hero-grid{grid-template-columns:1fr}
-  .trust{grid-template-columns:1fr}
-  .cards{grid-template-columns:1fr}
-  .ref-box{grid-template-columns:1fr}
-  .posts-grid{grid-template-columns:1fr}
-  .store-grid{grid-template-columns:1fr}
-  h1{font-size:40px}
-  .menu{display:none}
-  .hamburger{display:inline-block}
-  .mobile{display:block}
-  .store-search input{min-width:160px;}
-  .contact-cards{grid-template-columns:1fr}
-}
-
 /* ===== Banner superior (novedad más reciente) ===== */
 .top-banner{
   position:sticky;
@@ -356,10 +340,7 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   text-overflow:ellipsis;
   max-width: 64vw;
 }
-.banner-btn{
-  padding:10px 12px;
-  white-space:nowrap;
-}
+.banner-btn{white-space:nowrap}
 
 /* ===== Botón flotante WhatsApp ===== */
 .wa-float{
@@ -395,7 +376,20 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   color: rgba(233,238,251,.95);
 }
 
+/* Responsive */
 @media (max-width: 900px){
-  .banner-title{max-width: 56vw;}
-  .wa-txt{display:none;} /* móvil: solo icono */
+  .hero-grid{grid-template-columns:1fr}
+  .trust{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .ref-box{grid-template-columns:1fr}
+  .posts-grid{grid-template-columns:1fr}
+  .store-grid{grid-template-columns:1fr}
+  h1{font-size:40px}
+  .menu{display:none}
+  .hamburger{display:inline-block}
+  .mobile{display:block}
+  .store-search input{min-width:160px;}
+  .contact-cards{grid-template-columns:1fr}
+  .banner-title{max-width:56vw}
+  .wa-txt{display:none}
 }
