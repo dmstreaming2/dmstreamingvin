@@ -1,26 +1,7 @@
 [
   {
-    "title": "🔥 Promos activas",
-    "date": "2026-01-12",
-    "tag": "Promos",
-    "text": "Consulta por las promos disponibles hoy. Respuesta rápida por WhatsApp.",
-    "cta_text": "WhatsApp",
-    "cta_url": "https://wa.me/51903477698?text=Hola%2C%20quiero%20ver%20las%20promos%20disponibles%20hoy"
-  },
-  {
-    "title": "✅ Referencias disponibles",
-    "date": "2026-01-12",
-    "tag": "Referencias",
-    "text": "Tenemos muchas más referencias en Instagram @dmstreaming2. Pídelas por DM.",
-    "cta_text": "Ver IG",
-    "cta_url": "https://instagram.com/dmstreaming2"
-  },
-  {
-    "title": "⚡ Atención rápida",
-    "date": "2026-01-12",
-    "tag": "Atención",
-    "text": "Te guiamos paso a paso para dejar tu servicio activo.",
-    "cta_text": "Escribir",
-    "cta_url": "https://wa.me/51903477698?text=Hola%2C%20necesito%20ayuda%20para%20activar%20mi%20servicio"
+    "title": "🔥 Promo activa hoy",
+    "tag": "PROMO",
+    "cta_url": "https://wa.me/51903477698"
   }
 ]
