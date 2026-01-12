@@ -4,189 +4,52 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DM Streaming | Ventas de Streaming</title>
+
   <meta property="og:title" content="DM Streaming | Ventas de Streaming" />
-<meta property="og:description" content="Ventas de streaming con atención rápida. Referencias disponibles. Escríbenos por WhatsApp o IG @dmstreaming2." />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="./assets/og-cover.png" />
-<meta name="twitter:card" content="summary_large_image" />
-  <meta name="description" content="DM Streaming: venta de streaming y atención por DM. Contacto por WhatsApp e Instagram. Referencias disponibles." />
-  <meta name="theme-color" content="#0b1220" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta property="og:description" content="Ventas de streaming con atención rápida. Referencias disponibles. Escríbenos por WhatsApp o IG @dmstreaming2." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/og-cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
-  <div class="bg">
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
-    <div class="grid"></div>
-  </div>
 
-  <header class="header">
-    <div class="container nav">
-      <a class="brand" href="./index.html" aria-label="DM Streaming">
-        <span class="logo"></span>
-        <span>DM Streaming</span>
-      </a>
-
-      <nav class="menu" aria-label="Navegación">
-        <a href="./index.html">Inicio</a>
-        <a href="./pages/servicios.html">Servicios</a>
-        <a href="./pages/referencias.html">Referencias</a>
-        <a href="./pages/novedades.html">Novedades</a>
-        <a href="./pages/tienda.html">Tienda</a>
-        <a href="./pages/contacto.html">Contacto</a>
-      </nav>
-
-      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <div class="container mobile" id="mobileMenu" hidden>
+<header class="header">
+  <div class="container nav">
+    <div class="brand">DM Streaming</div>
+    <nav class="menu">
       <a href="./index.html">Inicio</a>
       <a href="./pages/servicios.html">Servicios</a>
       <a href="./pages/referencias.html">Referencias</a>
       <a href="./pages/novedades.html">Novedades</a>
       <a href="./pages/tienda.html">Tienda</a>
       <a href="./pages/contacto.html">Contacto</a>
+    </nav>
+  </div>
+</header>
 
-      <a class="btn soft full" href="./pages/tienda.html">Abrir mini tienda</a>
-    </div>
-  </header>
+<!-- BANNER AUTOMÁTICO -->
+<div class="top-banner" id="topBanner" hidden>
+  <div class="container banner-inner">
+    <span class="banner-pill" id="bannerTag"></span>
+    <span class="banner-title" id="bannerTitle"></span>
+    <a class="btn soft" id="bannerCta" target="_blank">Ver</a>
+  </div>
+</div>
 
-  <main class="hero">
-    <div class="container hero-grid">
-      <div class="hero-left">
-        <div class="pill">Ventas de streaming • Atención rápida • Referencias</div>
-        <h1>Tu streaming, <span class="grad">seguro y fácil</span>.</h1>
-        <p class="lead">
-          En <b>DM Streaming</b> te ayudamos con planes, cuentas y activaciones.
-          Atención por DM y WhatsApp.
-        </p>
+<section class="section">
+  <div class="container">
+    <h1>Ventas de Streaming</h1>
+    <p>Atención rápida • Referencias reales • WhatsApp directo</p>
+    <a class="btn primary" href="./pages/tienda.html">Ver Mini Tienda</a>
+  </div>
+</section>
 
-        <div class="cta-row">
-          <a class="btn primary" id="btnWhatsAppTop" href="#" target="_blank" rel="noreferrer">
-            Contactar por WhatsApp
-          </a>
-          <a class="btn ghost" href="https://instagram.com/dmstreaming2" target="_blank" rel="noreferrer">
-            Ver Instagram @dmstreaming2
-          </a>
-          <a class="btn soft" href="./pages/tienda.html">
-            Ver mini tienda
-          </a>
-        </div>
+<a class="wa-float" id="waFloat" target="_blank">💬 WhatsApp</a>
 
-        <div class="trust">
-          <div class="trust-item">
-            <div class="trust-icon">⚡</div>
-            <div>
-              <div class="trust-title">Respuesta rápida</div>
-              <div class="trust-sub">Atención por DM/WhatsApp</div>
-            </div>
-          </div>
-          <div class="trust-item">
-            <div class="trust-icon">🛡️</div>
-            <div>
-              <div class="trust-title">Más confianza</div>
-              <div class="trust-sub">Referencias disponibles</div>
-            </div>
-          </div>
-          <div class="trust-item">
-            <div class="trust-icon">🇵🇪</div>
-            <div>
-              <div class="trust-title">Perú</div>
-              <div class="trust-sub">Soporte en tu horario</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <aside class="hero-card" aria-label="Tarjeta de contacto">
-        <div class="card">
-          <div class="card-top">
-            <div>
-              <div class="card-kicker">DM Streaming</div>
-              <div class="card-title">Cotiza en 1 minuto</div>
-            </div>
-            <div class="badge">Online</div>
-          </div>
-
-          <div class="card-list">
-            <div class="row"><span>Instagram</span><b>@dmstreaming2</b></div>
-            <div class="row"><span>WhatsApp</span><b>+51 903 477 698</b></div>
-            <div class="row"><span>Referencias</span><b>En IG / DM</b></div>
-          </div>
-
-          <div class="card-actions">
-            <a class="btn primary full" id="btnWhatsAppCard" href="#" target="_blank" rel="noreferrer">
-              Escribir por WhatsApp
-            </a>
-            <a class="btn soft full" href="./pages/tienda.html">
-              Ver mini tienda
-            </a>
-          </div>
-
-          <p class="fineprint">
-            Tip: escribe “Hola, quiero info de streaming” y te respondemos con opciones.
-          </p>
-        </div>
-      </aside>
-    </div>
-  </main>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <h2>Accesos rápidos</h2>
-        <p>Entra directo a lo que necesitas.</p>
-      </div>
-
-      <div class="cards">
-        <a class="feature" href="./pages/servicios.html">
-          <div class="feature-icon">📌</div>
-          <h3>Servicios</h3>
-          <p>Lo que ofrecemos + soporte.</p>
-        </a>
-
-        <a class="feature" href="./pages/referencias.html">
-          <div class="feature-icon">✅</div>
-          <h3>Referencias</h3>
-          <p>Confianza y pruebas por DM.</p>
-        </a>
-
-        <a class="feature" href="./pages/tienda.html">
-          <div class="feature-icon">🛒</div>
-          <h3>Mini tienda</h3>
-          <p>Productos con botón a WhatsApp.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container foot">
-      <div class="foot-left">
-        <div class="brand small">
-          <span class="logo"></span>
-          <span>DM Streaming</span>
-        </div>
-        <div class="muted">© <span id="year"></span> DM Streaming.</div>
-      </div>
-
-      <div class="foot-right">
-        <a href="./pages/servicios.html">Servicios</a>
-        <a href="./pages/referencias.html">Referencias</a>
-        <a href="./pages/novedades.html">Novedades</a>
-        <a href="./pages/tienda.html">Tienda</a>
-        <a href="./pages/contacto.html">Contacto</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="./script.js"></script>
+<script src="./script.js"></script>
 </body>
 </html>
 
