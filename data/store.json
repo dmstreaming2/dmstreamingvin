@@ -9,7 +9,7 @@
     "category": "Métodos",
     "featured": true,
     "stock_label": "Stock limitado",
-    "image": "../assets/canva.svg",
+    "image": "../assets/canva.jpg",
     "message": "Hola DM Streaming, quiero el METODO CANVA PANEL (500 USUARIOS) por S/40 o USD 13. ¿Me confirmas disponibilidad y forma de pago?"
   },
   {
@@ -35,7 +35,7 @@
     "category": "Promos",
     "featured": false,
     "stock_label": "Por tiempo limitado",
-    "image": "../assets/whatsapp.svg",
+    "image": "../assets/whatsapp.jpg",
     "message": "Hola DM Streaming, ¿tienes combos o promociones disponibles hoy?"
   }
 ]
