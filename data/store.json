@@ -1,16 +1,41 @@
 [
   {
     "name": "METODO CANVA PANEL (500 USUARIOS)",
-    "desc": "Acceso al método Canva Panel.",
+    "desc": "Acceso al método Canva Panel para hasta 500 usuarios. Ideal para gestión y uso compartido.",
+    "price_soles": 40,
+    "price_usd": 13,
     "currency_label": "S/ 40 • USD 13",
-    "image": "../assets/canva.svg",
-    "message": "Hola quiero CANVA PANEL"
+    "badge": "Nuevo",
+    "category": "Métodos",
+    "featured": true,
+    "stock_label": "Stock limitado",
+    "image": "canva.svg",
+    "message": "Hola DM Streaming, quiero el METODO CANVA PANEL (500 USUARIOS) por S/40 o USD 13. ¿Me confirmas disponibilidad y forma de pago?"
   },
   {
-    "name": "CRUNCHYROLL MEGA FAN (MES)",
-    "desc": "Cuenta completa Crunchyroll.",
+    "name": "CRUNCHYROLL MEGA FAN - CUENTA COMPLETA (MES)",
+    "desc": "Cuenta completa Crunchyroll Mega Fan por 1 mes. Acceso total al catálogo sin anuncios.",
+    "price_soles": 6,
+    "price_usd": 2,
     "currency_label": "S/ 6 • USD 2",
-    "image": "../assets/crunchyroll.png",
-    "message": "Hola quiero Crunchyroll Mega Fan"
+    "badge": "Oferta",
+    "category": "Streaming",
+    "featured": true,
+    "stock_label": "Promo activa",
+    "image": "crunchyroll.png",
+    "message": "Hola DM Streaming, quiero CRUNCHYROLL MEGA FAN - CUENTA COMPLETA (MES) por S/6 o USD 2. ¿Me confirmas disponibilidad?"
+  },
+  {
+    "name": "Combo / Promoción",
+    "desc": "Pregunta por combos o promociones disponibles.",
+    "price_soles": null,
+    "price_usd": null,
+    "currency_label": "Consultar",
+    "badge": "Promo",
+    "category": "Promos",
+    "featured": false,
+    "stock_label": "Por tiempo limitado",
+    "image": "whatsapp.svg",
+    "message": "Hola DM Streaming, ¿tienes combos o promociones disponibles hoy?"
   }
 ]
