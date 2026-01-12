@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tienda | DM Streaming</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="../index.html"><span class="logo"></span><span>DM Streaming</span></a>
+      <nav class="menu">
+        <a href="../index.html">Inicio</a>
+        <a href="./servicios.html">Servicios</a>
+        <a href="./referencias.html">Referencias</a>
+        <a href="./novedades.html">Novedades</a>
+        <a href="./tienda.html">Tienda</a>
+        <a href="./contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Mini tienda</h2>
+        <p>Elige un producto y compra por WhatsApp (desde data/store.json).</p>
+      </div>
+
+      <div class="store-toolbar">
+        <div class="store-filters" id="storeFilters"></div>
+        <label class="store-search">
+          <span class="store-search-ic">🔎</span>
+          <input id="storeSearch" type="search" placeholder="Buscar en la tienda..." />
+        </label>
+      </div>
+
+      <div class="store-grid" id="storeGrid"></div>
+      <div class="posts-note muted">*Se actualiza editando <b>data/store.json</b>.</div>
+    </div>
+  </section>
+
+  <script src="../script.js"></script>
+</body>
+</html>
