@@ -315,3 +315,87 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   .store-search input{min-width:160px;}
   .contact-cards{grid-template-columns:1fr}
 }
+
+/* ===== Banner superior (novedad más reciente) ===== */
+.top-banner{
+  position:sticky;
+  top:64px;
+  z-index:40;
+  background: rgba(255,255,255,.03);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+}
+.banner-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 0;
+}
+.banner-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+}
+.banner-pill{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(94,240,255,.22);
+  background: rgba(94,240,255,.10);
+  font-weight:900;
+  font-size:12px;
+  white-space:nowrap;
+}
+.banner-title{
+  font-weight:800;
+  color: rgba(233,238,251,.9);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width: 64vw;
+}
+.banner-btn{
+  padding:10px 12px;
+  white-space:nowrap;
+}
+
+/* ===== Botón flotante WhatsApp ===== */
+.wa-float{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:999px;
+  border:1px solid rgba(94,240,255,.28);
+  background: rgba(7,11,20,.75);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+}
+.wa-float:hover{
+  transform: translateY(-1px);
+  background: rgba(7,11,20,.88);
+}
+.wa-ic{
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background: rgba(94,240,255,.12);
+  border:1px solid rgba(94,240,255,.18);
+}
+.wa-txt{
+  font-weight:1000;
+  color: rgba(233,238,251,.95);
+}
+
+@media (max-width: 900px){
+  .banner-title{max-width: 56vw;}
+  .wa-txt{display:none;} /* móvil: solo icono */
+}
