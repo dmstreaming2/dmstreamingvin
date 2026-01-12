@@ -7,7 +7,6 @@
   <meta name="description" content="DM Streaming: venta de streaming y atención por DM. Contacto por WhatsApp e Instagram. Referencias disponibles." />
   <meta name="theme-color" content="#0b1220" />
 
-  <!-- OG / Social -->
   <meta property="og:title" content="DM Streaming | Ventas de Streaming" />
   <meta property="og:description" content="Ventas de streaming con atención rápida. Referencias disponibles. Escríbenos por WhatsApp o IG @dmstreaming2." />
   <meta property="og:type" content="website" />
@@ -48,15 +47,23 @@
       </button>
     </div>
 
+    <!-- MENÚ MÓVIL OPTIMIZADO -->
     <div class="container mobile" id="mobileMenu" hidden>
-      <a href="./index.html">Inicio</a>
-      <a href="./pages/servicios.html">Servicios</a>
-      <a href="./pages/referencias.html">Referencias</a>
-      <a href="./pages/novedades.html">Novedades</a>
-      <a href="./pages/tienda.html">Tienda</a>
-      <a href="./pages/contacto.html">Contacto</a>
+      <div class="mobile-links">
+        <a href="./index.html">Inicio</a>
+        <a href="./pages/tienda.html">Tienda</a>
+        <a href="./pages/novedades.html">Novedades</a>
+        <a href="./pages/contacto.html">Contacto</a>
 
-      <a class="btn soft full" href="./pages/tienda.html">Abrir mini tienda</a>
+        <!-- Links secundarios (siguen existiendo, pero menos prioridad) -->
+        <a class="mobile-only" href="./pages/servicios.html">Servicios</a>
+        <a class="mobile-only" href="./pages/referencias.html">Referencias</a>
+      </div>
+
+      <div class="mobile-cta">
+        <a class="btn primary full" href="./pages/tienda.html">Abrir mini tienda</a>
+        <a class="btn soft full" id="btnWhatsAppPanel" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+      </div>
     </div>
   </header>
 
@@ -81,15 +88,17 @@
           Atención por DM y WhatsApp.
         </p>
 
+        <!-- En móvil: 2 botones grandes (por el CSS responsive) -->
         <div class="cta-row">
           <a class="btn primary" id="btnWhatsAppTop" href="#" target="_blank" rel="noreferrer">
             Contactar por WhatsApp
           </a>
-          <a class="btn ghost" href="https://instagram.com/dmstreaming2" target="_blank" rel="noreferrer">
-            Ver Instagram @dmstreaming2
-          </a>
           <a class="btn soft" href="./pages/tienda.html">
             Ver mini tienda
+          </a>
+          <!-- Botón extra solo para PC -->
+          <a class="btn ghost mobile-hide" href="https://instagram.com/dmstreaming2" target="_blank" rel="noreferrer">
+            Ver Instagram @dmstreaming2
           </a>
         </div>
 
@@ -118,7 +127,7 @@
         </div>
       </div>
 
-      <aside class="hero-card" aria-label="Tarjeta de contacto">
+      <aside class="hero-card mobile-hide" aria-label="Tarjeta de contacto">
         <div class="card">
           <div class="card-top">
             <div>
@@ -209,6 +218,4 @@
   <script src="./script.js"></script>
 </body>
 </html>
-
-
 
