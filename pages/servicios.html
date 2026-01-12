@@ -4,39 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Servicios | DM Streaming</title>
-
-  <meta property="og:title" content="DM Streaming | Servicios" />
-  <meta property="og:description" content="Servicios de streaming con atención rápida por WhatsApp e Instagram." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="../assets/og-cover.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
   <header class="header">
     <div class="container nav">
-      <a class="brand" href="../index.html"><span class="logo"></span><span>DM Streaming</span></a>
-      <nav class="menu">
+      <a class="brand" href="../index.html">
+        <span class="logo"></span>
+        <span>DM Streaming</span>
+      </a>
+      <nav class="menu" aria-label="Navegación">
         <a href="../index.html">Inicio</a>
-        <a href="./servicios.html">Servicios</a>
+        <a class="active" href="./servicios.html">Servicios</a>
         <a href="./referencias.html">Referencias</a>
         <a href="./novedades.html">Novedades</a>
         <a href="./tienda.html">Tienda</a>
         <a href="./contacto.html">Contacto</a>
       </nav>
-      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <div class="container mobile" id="mobileMenu" hidden>
-      <a href="../index.html">Inicio</a>
-      <a href="./servicios.html">Servicios</a>
-      <a href="./referencias.html">Referencias</a>
-      <a href="./novedades.html">Novedades</a>
-      <a href="./tienda.html">Tienda</a>
-      <a href="./contacto.html">Contacto</a>
     </div>
   </header>
 
@@ -50,54 +40,28 @@
     </div>
   </div>
 
-  <section class="section">
+  <main class="section">
     <div class="container">
-      <div class="section-head">
+      <div class="box">
         <h2>Servicios</h2>
-        <p>Opciones claras, trato directo y soporte si tienes dudas.</p>
-      </div>
+        <p>Estos son algunos servicios comunes. Si quieres, lo ajustamos a tus servicios exactos.</p>
+        <ul class="list">
+          <li>Venta de cuentas / perfiles</li>
+          <li>Activaciones / renovaciones</li>
+          <li>Soporte y asistencia por WhatsApp</li>
+          <li>Promociones y combos (según disponibilidad)</li>
+        </ul>
 
-      <div class="cards">
-        <article class="feature">
-          <div class="feature-icon">📺</div>
-          <h3>Planes / Cuentas</h3>
-          <p>Te orientamos según lo que necesitas y tu presupuesto.</p>
-        </article>
-        <article class="feature">
-          <div class="feature-icon">🔐</div>
-          <h3>Configuración</h3>
-          <p>Guía para iniciar sesión y dejar todo funcionando.</p>
-        </article>
-        <article class="feature">
-          <div class="feature-icon">💬</div>
-          <h3>Soporte</h3>
-          <p>Atención rápida por WhatsApp e Instagram.</p>
-        </article>
-      </div>
-
-      <div class="cta-row" style="margin-top:16px">
-        <a class="btn primary" id="btnWhatsAppTop" href="#" target="_blank" rel="noreferrer">Contactar por WhatsApp</a>
-        <a class="btn soft" href="./tienda.html">Ir a mini tienda</a>
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" id="btnWhatsAppBottom" href="#" target="_blank" rel="noreferrer">Consultar por WhatsApp</a>
+          <a class="btn soft" href="./tienda.html">Ver mini tienda</a>
+        </div>
       </div>
     </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container foot">
-      <div class="foot-left">
-        <div class="brand small"><span class="logo"></span><span>DM Streaming</span></div>
-        <div class="muted">© <span id="year"></span> DM Streaming.</div>
-      </div>
-      <div class="foot-right">
-        <a href="./tienda.html">Tienda</a>
-        <a href="./contacto.html">Contacto</a>
-      </div>
-    </div>
-  </footer>
+  </main>
 
   <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noreferrer" aria-label="WhatsApp">
-    <span class="wa-ic">💬</span>
-    <span class="wa-txt">WhatsApp</span>
+    <span class="wa-ic">💬</span><span class="wa-txt">WhatsApp</span>
   </a>
 
   <script src="../script.js"></script>
