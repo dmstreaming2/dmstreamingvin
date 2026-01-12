@@ -9,7 +9,7 @@
     "category": "Métodos",
     "featured": true,
     "stock_label": "Stock limitado",
-    "image": "canva.svg",
+    "image": "../assets/canva.svg",
     "message": "Hola DM Streaming, quiero el METODO CANVA PANEL (500 USUARIOS) por S/40 o USD 13. ¿Me confirmas disponibilidad y forma de pago?"
   },
   {
@@ -22,7 +22,7 @@
     "category": "Streaming",
     "featured": true,
     "stock_label": "Promo activa",
-    "image": "crunchyroll.png",
+    "image": "../assets/crunchyroll.png",
     "message": "Hola DM Streaming, quiero CRUNCHYROLL MEGA FAN - CUENTA COMPLETA (MES) por S/6 o USD 2. ¿Me confirmas disponibilidad?"
   },
   {
@@ -35,7 +35,7 @@
     "category": "Promos",
     "featured": false,
     "stock_label": "Por tiempo limitado",
-    "image": "whatsapp.svg",
+    "image": "../assets/whatsapp.svg",
     "message": "Hola DM Streaming, ¿tienes combos o promociones disponibles hoy?"
   }
 ]
