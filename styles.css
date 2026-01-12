@@ -386,3 +386,20 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   .banner-title{max-width:48vw}
   .wa-txt{display:none}
 }
+/* ===== TEXTO HERO MÁS VISIBLE ===== */
+.grad-strong{
+  background: linear-gradient(
+    90deg,
+    #5ef0ff 0%,
+    #4aa3ff 40%,
+    #9b8cff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 1000;
+  text-shadow:
+    0 0 12px rgba(94,240,255,.35),
+    0 0 22px rgba(74,163,255,.25);
+}
+
