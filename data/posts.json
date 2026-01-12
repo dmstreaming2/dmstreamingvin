@@ -1,26 +1,37 @@
 [
   {
-    "title": "🔥 Promos activas",
-    "date": "2026-01-12",
-    "tag": "Promos",
-    "text": "Consulta por las promos disponibles hoy. Respuesta rápida por WhatsApp.",
-    "cta_text": "WhatsApp",
-    "cta_url": "https://wa.me/51903477698?text=Hola%2C%20quiero%20ver%20las%20promos%20disponibles%20hoy"
+    "name": "CRUNCHYROLL MEGA FAN - CUENTA COMPLETA (MES)",
+    "desc": "Cuenta completa Crunchyroll Mega Fan por 1 mes. Acceso total al catálogo sin anuncios.",
+    "category": "Streaming",
+    "badge": "Oferta",
+    "stock_label": "Promo activa",
+    "currency_label": "S/ 6 • USD 2",
+    "featured": true,
+    "ribbon": "OFERTA",
+    "image": "../assets/crunchyroll.png",
+    "message": "Hola DM Streaming, quiero CRUNCHYROLL MEGA FAN - CUENTA COMPLETA (MES) por S/6 o USD 2. ¿Me confirmas disponibilidad?"
   },
   {
-    "title": "✅ Referencias disponibles",
-    "date": "2026-01-12",
-    "tag": "Referencias",
-    "text": "Tenemos muchas más referencias en Instagram @dmstreaming2. Pídelas por DM.",
-    "cta_text": "Ver IG",
-    "cta_url": "https://instagram.com/dmstreaming2"
+    "name": "METODO CANVA PANEL (500 USUARIOS)",
+    "desc": "Acceso al método Canva Panel para hasta 500 usuarios. Ideal para gestión y uso compartido.",
+    "category": "Métodos",
+    "badge": "Nuevo",
+    "stock_label": "Stock limitado",
+    "currency_label": "S/ 40 • USD 13",
+    "featured": true,
+    "ribbon": "NUEVO",
+    "image": "../assets/canva.jpg",
+    "message": "Hola DM Streaming, quiero METODO CANVA PANEL (500 USUARIOS) por S/40 o USD 13. ¿Me confirmas disponibilidad?"
   },
   {
-    "title": "⚡ Atención rápida",
-    "date": "2026-01-12",
-    "tag": "Atención",
-    "text": "Te guiamos paso a paso para dejar tu servicio activo.",
-    "cta_text": "Escribir",
-    "cta_url": "https://wa.me/51903477698?text=Hola%2C%20necesito%20ayuda%20para%20activar%20mi%20servicio"
+    "name": "Combo / Promoción",
+    "desc": "Pregunta por combos o promociones disponibles.",
+    "category": "Promos",
+    "badge": "Promo",
+    "stock_label": "Por tiempo limitado",
+    "currency_label": "Consultar",
+    "featured": false,
+    "image": "../assets/whatsapp.jpg",
+    "message": "Hola DM Streaming, quiero consultar combos o promociones disponibles. ¿Qué hay hoy?"
   }
 ]
