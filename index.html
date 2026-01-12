@@ -17,6 +17,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
+
+  <!-- ✅ CSS-only menu (solo para móvil) -->
+  <style>
+    /* checkbox invisible */
+    #navToggle { position: absolute; opacity: 0; pointer-events:none; }
+    /* botón hamburguesa como label */
+    .hamburgerLabel{ display:none; }
+    @media (max-width: 900px){
+      .hamburger{ display:none !important; } /* desactiva el botón viejo */
+      .hamburgerLabel{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        background:transparent;
+        border:1px solid rgba(255,255,255,.16);
+        border-radius:14px;
+        padding:10px;
+        cursor:pointer;
+      }
+      .hamburgerLabel span{display:block; width:18px; height:2px; background:var(--text); margin:4px 0; border-radius:999px}
+      /* menú cerrado por defecto */
+      #mobileMenu{ display:none; }
+      /* menú abierto cuando checkbox está activado */
+      #navToggle:checked ~ header #mobileMenu{ display:block; }
+    }
+  </style>
 </head>
 
 <body>
@@ -25,6 +51,9 @@
     <div class="blob b2"></div>
     <div class="grid"></div>
   </div>
+
+  <!-- ✅ Toggle para menú móvil (CSS-only) -->
+  <input type="checkbox" id="navToggle" />
 
   <header class="header">
     <div class="container nav">
@@ -42,32 +71,35 @@
         <a href="./pages/contacto.html">Contacto</a>
       </nav>
 
+      <!-- ✅ Botón móvil real -->
+      <label class="hamburgerLabel" for="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </label>
+
+      <!-- (opcional) si quieres dejar el viejo en PC no pasa nada -->
       <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
 
-    <!-- MENÚ MÓVIL OPTIMIZADO -->
-    <div class="container mobile" id="mobileMenu" hidden>
+    <!-- ✅ Menú móvil -->
+    <div class="container mobile" id="mobileMenu">
       <div class="mobile-links">
-        <a href="./index.html">Inicio</a>
-        <a href="./pages/tienda.html">Tienda</a>
-        <a href="./pages/novedades.html">Novedades</a>
-        <a href="./pages/contacto.html">Contacto</a>
-
-        <!-- Links secundarios (siguen existiendo, pero menos prioridad) -->
-        <a class="mobile-only" href="./pages/servicios.html">Servicios</a>
-        <a class="mobile-only" href="./pages/referencias.html">Referencias</a>
+        <a href="./index.html" onclick="document.getElementById('navToggle').checked=false">Inicio</a>
+        <a href="./pages/tienda.html" onclick="document.getElementById('navToggle').checked=false">Tienda</a>
+        <a href="./pages/novedades.html" onclick="document.getElementById('navToggle').checked=false">Novedades</a>
+        <a href="./pages/contacto.html" onclick="document.getElementById('navToggle').checked=false">Contacto</a>
+        <a href="./pages/servicios.html" onclick="document.getElementById('navToggle').checked=false">Servicios</a>
+        <a href="./pages/referencias.html" onclick="document.getElementById('navToggle').checked=false">Referencias</a>
       </div>
 
       <div class="mobile-cta">
-        <a class="btn primary full" href="./pages/tienda.html">Abrir mini tienda</a>
+        <a class="btn primary full" href="./pages/tienda.html" onclick="document.getElementById('navToggle').checked=false">Abrir mini tienda</a>
         <a class="btn soft full" id="btnWhatsAppPanel" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
       </div>
     </div>
   </header>
 
-  <!-- BANNER AUTOMÁTICO (novedad más reciente) -->
   <div class="top-banner" id="topBanner" hidden>
     <div class="container banner-inner">
       <div class="banner-left">
@@ -88,41 +120,24 @@
           Atención por DM y WhatsApp.
         </p>
 
-        <!-- En móvil: 2 botones grandes (por el CSS responsive) -->
         <div class="cta-row">
-          <a class="btn primary" id="btnWhatsAppTop" href="#" target="_blank" rel="noreferrer">
-            Contactar por WhatsApp
-          </a>
-          <a class="btn soft" href="./pages/tienda.html">
-            Ver mini tienda
-          </a>
-          <!-- Botón extra solo para PC -->
-          <a class="btn ghost mobile-hide" href="https://instagram.com/dmstreaming2" target="_blank" rel="noreferrer">
-            Ver Instagram @dmstreaming2
-          </a>
+          <a class="btn primary" id="btnWhatsAppTop" href="#" target="_blank" rel="noreferrer">Contactar por WhatsApp</a>
+          <a class="btn soft" href="./pages/tienda.html">Ver mini tienda</a>
+          <a class="btn ghost mobile-hide" href="https://instagram.com/dmstreaming2" target="_blank" rel="noreferrer">Ver Instagram @dmstreaming2</a>
         </div>
 
         <div class="trust">
           <div class="trust-item">
             <div class="trust-icon">⚡</div>
-            <div>
-              <div class="trust-title">Respuesta rápida</div>
-              <div class="trust-sub">Atención por DM/WhatsApp</div>
-            </div>
+            <div><div class="trust-title">Respuesta rápida</div><div class="trust-sub">Atención por DM/WhatsApp</div></div>
           </div>
           <div class="trust-item">
             <div class="trust-icon">🛡️</div>
-            <div>
-              <div class="trust-title">Más confianza</div>
-              <div class="trust-sub">Referencias disponibles</div>
-            </div>
+            <div><div class="trust-title">Más confianza</div><div class="trust-sub">Referencias disponibles</div></div>
           </div>
           <div class="trust-item">
             <div class="trust-icon">🇵🇪</div>
-            <div>
-              <div class="trust-title">Perú</div>
-              <div class="trust-sub">Soporte en tu horario</div>
-            </div>
+            <div><div class="trust-title">Perú</div><div class="trust-sub">Soporte en tu horario</div></div>
           </div>
         </div>
       </div>
@@ -144,58 +159,20 @@
           </div>
 
           <div class="card-actions">
-            <a class="btn primary full" id="btnWhatsAppCard" href="#" target="_blank" rel="noreferrer">
-              Escribir por WhatsApp
-            </a>
-            <a class="btn soft full" href="./pages/tienda.html">
-              Ver mini tienda
-            </a>
+            <a class="btn primary full" id="btnWhatsAppCard" href="#" target="_blank" rel="noreferrer">Escribir por WhatsApp</a>
+            <a class="btn soft full" href="./pages/tienda.html">Ver mini tienda</a>
           </div>
 
-          <p class="fineprint">
-            Tip: escribe “Hola, quiero info de streaming” y te respondemos con opciones.
-          </p>
+          <p class="fineprint">Tip: escribe “Hola, quiero info de streaming” y te respondemos con opciones.</p>
         </div>
       </aside>
     </div>
   </main>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <h2>Accesos rápidos</h2>
-        <p>Entra directo a lo que necesitas.</p>
-      </div>
-
-      <div class="cards">
-        <a class="feature" href="./pages/servicios.html">
-          <div class="feature-icon">📌</div>
-          <h3>Servicios</h3>
-          <p>Lo que ofrecemos + soporte.</p>
-        </a>
-
-        <a class="feature" href="./pages/referencias.html">
-          <div class="feature-icon">✅</div>
-          <h3>Referencias</h3>
-          <p>Confianza y pruebas por DM.</p>
-        </a>
-
-        <a class="feature" href="./pages/tienda.html">
-          <div class="feature-icon">🛒</div>
-          <h3>Mini tienda</h3>
-          <p>Productos con botón a WhatsApp.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <footer class="footer">
     <div class="container foot">
       <div class="foot-left">
-        <div class="brand small">
-          <span class="logo"></span>
-          <span>DM Streaming</span>
-        </div>
+        <div class="brand small"><span class="logo"></span><span>DM Streaming</span></div>
         <div class="muted">© <span id="year"></span> DM Streaming.</div>
       </div>
 
@@ -209,7 +186,6 @@
     </div>
   </footer>
 
-  <!-- BOTÓN FLOTANTE WHATSAPP -->
   <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noreferrer" aria-label="WhatsApp">
     <span class="wa-ic">💬</span>
     <span class="wa-txt">WhatsApp</span>
@@ -218,4 +194,3 @@
   <script src="./script.js"></script>
 </body>
 </html>
-
