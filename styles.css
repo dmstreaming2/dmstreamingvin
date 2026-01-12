@@ -24,10 +24,7 @@ b{font-weight:700}
 
 /* Fondo */
 .bg{position:fixed; inset:0; z-index:-1; pointer-events:none}
-.blob{
-  position:absolute; width:520px; height:520px; filter: blur(60px);
-  opacity:.35; border-radius:999px;
-}
+.blob{position:absolute; width:520px; height:520px; filter: blur(60px); opacity:.35; border-radius:999px}
 .b1{left:-180px; top:-120px; background: radial-gradient(circle at 30% 30%, var(--blue), transparent 60%)}
 .b2{right:-220px; bottom:-160px; background: radial-gradient(circle at 60% 40%, var(--cyan), transparent 60%)}
 .grid{
@@ -47,8 +44,9 @@ b{font-weight:700}
   background: rgba(7,11,20,.55);
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
-.nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
+.nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
 .brand{display:flex; align-items:center; gap:10px; font-weight:700}
+.brand.small{font-size:14px}
 .logo{
   width:28px; height:28px; border-radius:10px;
   background: radial-gradient(circle at 30% 30%, var(--cyan), var(--blue));
@@ -57,6 +55,7 @@ b{font-weight:700}
 .menu{display:flex; gap:18px; color:var(--muted); font-weight:600}
 .menu a{padding:8px 10px; border-radius:10px}
 .menu a:hover{background: rgba(255,255,255,.06); color:var(--text)}
+
 .hamburger{
   display:none;
   background:transparent; border:1px solid rgba(255,255,255,.16);
@@ -102,7 +101,7 @@ b{font-weight:700}
   font-size:13px;
 }
 h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
-.grad{background: linear-gradient(90deg, var(--cyan), var(--blue)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.grad{background: linear-gradient(90deg, var(--cyan), var(--blue)); -webkit-background-clip:text; background-clip:text; color:transparent}
 .lead{color:var(--muted); font-size:16px; max-width:56ch}
 .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin:18px 0 10px}
 
@@ -175,6 +174,7 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
 
 /* Novedades */
 .posts-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px}
+.posts-actions{display:flex; gap:10px; flex-wrap:wrap}
 .posts-grid{display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:12px}
 .post{border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); border-radius: var(--radius); padding:16px}
 .post-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:10px}
@@ -184,26 +184,13 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
 .post p{margin:0 0 12px; color:var(--muted)}
 .posts-note{margin-top:12px; font-size:12.5px}
 
-/* FAQ */
-.faq{display:grid; gap:10px}
-details{border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); border-radius: var(--radius); padding:12px 14px}
-summary{cursor:pointer; font-weight:900}
-details p{color:var(--muted); margin:10px 0 0}
-
 /* Contacto */
-.contact{display:grid; grid-template-columns: 1.2fr .8fr; gap:12px; align-items:start}
-.lead2{color:var(--muted); margin-top:8px}
 .contact-cards{display:grid; gap:10px; grid-template-columns: repeat(2, minmax(0,1fr)); margin:16px 0 12px}
 .contact-card{border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); border-radius: var(--radius); padding:14px}
 .contact-card:hover{background: rgba(255,255,255,.05)}
 .cc-top{display:flex; align-items:center; gap:10px}
 .cc-ic{width:34px; height:34px; display:grid; place-items:center; border-radius:12px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10)}
 .cc-sub{margin-top:10px; color:var(--muted); font-weight:800}
-.panel{border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); border-radius: 22px; padding:16px; box-shadow: var(--shadow)}
-.panel-title{font-weight:1000; font-size:18px}
-.panel-sub{color:var(--muted); margin-top:6px}
-.panel-list{margin:12px 0 14px; padding-left:18px; color:var(--muted)}
-.panel-list li{margin:6px 0}
 
 /* Footer */
 .footer{padding:26px 0 34px; border-top:1px solid rgba(255,255,255,.08); background: rgba(7,11,20,.55); backdrop-filter: blur(10px)}
@@ -211,30 +198,16 @@ details p{color:var(--muted); margin:10px 0 0}
 .foot-right{display:flex; gap:14px; color:var(--muted); font-weight:700}
 .foot-right a:hover{color:var(--text)}
 
-/* Modal */
-.modal{position:fixed; inset:0; z-index:999; background: rgba(0,0,0,.55); display:grid; place-items:center; padding:18px}
-.modal[hidden]{display:none}
-.modal-card{width:min(900px, 100%); border:1px solid rgba(255,255,255,.14); background: rgba(7,11,20,.92); backdrop-filter: blur(10px); border-radius: 22px; padding:16px; box-shadow: var(--shadow)}
-.modal-top{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:12px}
-.modal-title{font-weight:1000; font-size:18px}
-.modal-sub{color:var(--muted); font-weight:800; margin-top:4px}
-.modal-close{border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: var(--text); border-radius: 14px; padding:10px 12px; cursor:pointer}
-.modal-close:hover{background: rgba(255,255,255,.10)}
-.modal-hint{font-size:12px; margin-top:10px}
-
-/* ===== TIENDA PRO ===== */
+/* ===== TIENDA ===== */
 .store-toolbar{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap}
 .store-filters{display:flex; gap:8px; flex-wrap:wrap}
 .filter{padding:10px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04); color: var(--text); font-weight:900; cursor:pointer}
 .filter:hover{background: rgba(255,255,255,.06)}
 .filter.active{border-color: rgba(94,240,255,.28); background: linear-gradient(90deg, rgba(94,240,255,.18), rgba(74,163,255,.18))}
 .store-search{display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius: 14px; border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04)}
-.store-search-ic{opacity:.9}
 .store-search input{border:none; outline:none; background: transparent; color: var(--text); min-width: 220px}
 
-.store-preview{display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:12px}
 .store-grid{display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:12px}
-
 .store-item{
   position:relative;
   border:1px solid rgba(255,255,255,.10);
@@ -260,7 +233,6 @@ details p{color:var(--muted); margin:10px 0 0}
   letter-spacing:.2px;
   box-shadow: 0 18px 60px rgba(94,240,255,.10);
 }
-
 .store-header{display:flex; gap:12px; align-items:flex-start; justify-content:space-between}
 .store-logo{
   width:46px; height:46px;
@@ -276,7 +248,6 @@ details p{color:var(--muted); margin:10px 0 0}
 .store-headtext{flex: 1 1 auto; min-width:0}
 .store-name{font-weight:1000; font-size:16px; line-height:1.15}
 .store-meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
-
 .store-badge{
   display:inline-block;
   padding:6px 10px;
@@ -290,7 +261,6 @@ details p{color:var(--muted); margin:10px 0 0}
 .badge-offer{border-color: rgba(255,204,102,.28); background: rgba(255,204,102,.12)}
 .badge-promo{border-color: rgba(180,120,255,.28); background: rgba(180,120,255,.12)}
 .badge-default{border-color: rgba(74,163,255,.22); background: rgba(74,163,255,.12)}
-
 .store-cat{
   display:inline-block;
   padding:6px 10px;
@@ -310,7 +280,6 @@ details p{color:var(--muted); margin:10px 0 0}
   font-weight:900;
   font-size:12px;
 }
-
 .store-desc{color: var(--muted); margin:12px 0 12px}
 .store-price{
   padding:8px 12px;
@@ -319,15 +288,7 @@ details p{color:var(--muted); margin:10px 0 0}
   background: rgba(94,240,255,.10);
   font-weight:1000;
   white-space:nowrap;
-  flex: 0 0 auto;
 }
-.store-price.big{
-  font-size:14px;
-  letter-spacing:.2px;
-  box-shadow: 0 18px 50px rgba(94,240,255,.08);
-}
-
-/* Debug */
 .store-debug{
   margin-top:12px;
   padding:12px;
@@ -339,8 +300,6 @@ details p{color:var(--muted); margin:10px 0 0}
   font-size:12.5px;
 }
 
-.modal-tools{ margin-bottom: 14px; }
-
 /* Responsive */
 @media (max-width: 900px){
   .hero-grid{grid-template-columns:1fr}
@@ -348,11 +307,11 @@ details p{color:var(--muted); margin:10px 0 0}
   .cards{grid-template-columns:1fr}
   .ref-box{grid-template-columns:1fr}
   .posts-grid{grid-template-columns:1fr}
-  .store-preview{grid-template-columns:1fr}
   .store-grid{grid-template-columns:1fr}
   h1{font-size:40px}
   .menu{display:none}
   .hamburger{display:inline-block}
   .mobile{display:block}
   .store-search input{min-width:160px;}
+  .contact-cards{grid-template-columns:1fr}
 }
