@@ -16,6 +16,14 @@ function waLink(message) {
   return `https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`;
 }
 
+/* ===== Base URL para data/ (root vs pages/) ===== */
+function dataUrl(filename) {
+  // si estás en /pages/, sube un nivel
+  const inPages = location.pathname.includes("/pages/");
+  return (inPages ? `../data/${filename}` : `./data/${filename}`);
+}
+
+/* ===== WhatsApp links ===== */
 function setWhatsAppLinks() {
   const url = waLink(defaultMsg);
   ["btnWhatsAppTop","btnWhatsAppCard","btnWhatsAppRefs","btnWhatsAppBottom","btnWhatsAppPanel"].forEach((id)=>{
@@ -29,6 +37,7 @@ function setYear() {
   if (y) y.textContent = new Date().getFullYear();
 }
 
+/* ===== Menú móvil ===== */
 function mobileMenu() {
   const btn = document.getElementById("hamburger");
   const menu = document.getElementById("mobileMenu");
@@ -53,6 +62,7 @@ function mobileMenu() {
   });
 }
 
+/* ===== Copiar mensaje (referencias) ===== */
 function copyMessage() {
   const btn = document.getElementById("copyBtn");
   const box = document.getElementById("msgBox");
@@ -72,7 +82,7 @@ function copyMessage() {
   });
 }
 
-/* ===== Posts ===== */
+/* ===== Novedades ===== */
 function formatDate(iso) {
   try {
     const [y, m, d] = iso.split("-").map(Number);
@@ -84,11 +94,11 @@ function formatDate(iso) {
 
 async function loadPosts() {
   const grid = document.getElementById("postsGrid");
-  if (!grid) return;
+  if (!grid) return; // solo en novedades
 
   try {
-    const res = await fetch(`./data/posts.json?v=${Date.now()}`);
-    if (!res.ok) throw new Error("No se pudo cargar posts.json");
+    const res = await fetch(`${dataUrl("posts.json")}?v=${Date.now()}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const posts = await res.json();
 
     posts.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
@@ -113,18 +123,18 @@ async function loadPosts() {
         </article>
       `;
     }).join("");
-  } catch {
+  } catch (e) {
     grid.innerHTML = `
       <article class="post">
         <div class="post-top"><span class="post-tag">Aviso</span><span class="post-date">—</span></div>
         <h3>No se pudo cargar Novedades</h3>
-        <p>Revisa que exista <b>data/posts.json</b> y que sea JSON válido.</p>
+        <p>Revisa <b>data/posts.json</b>. Error: ${escapeHtml(e?.message || e)}</p>
       </article>
     `;
   }
 }
 
-/* ===== Store (Blindado) ===== */
+/* ===== Tienda (solo en tienda.html) ===== */
 let STORE_ITEMS = [];
 let storeCategory = "Todos";
 let storeQuery = "";
@@ -142,8 +152,8 @@ function badgeClassFromText(badgeText){
   return "badge-default";
 }
 
-function renderFilters(targetId, categories) {
-  const el = document.getElementById(targetId);
+function renderFilters(categories) {
+  const el = document.getElementById("storeFilters");
   if (!el) return;
 
   el.innerHTML = categories.map((c) => {
@@ -154,9 +164,8 @@ function renderFilters(targetId, categories) {
   el.querySelectorAll("[data-cat]").forEach((b) => {
     b.addEventListener("click", () => {
       storeCategory = b.getAttribute("data-cat") || "Todos";
+      renderFilters(categories);
       renderStore();
-      renderFilters("storeFilters", categories);
-      renderFilters("storeFiltersModal", categories);
     });
   });
 }
@@ -168,7 +177,6 @@ function applyStoreFilters(items) {
     const fa = Number(!!a.featured);
     const fb = Number(!!b.featured);
     if (fb !== fa) return fb - fa;
-
     const pa = Number(a.price_soles ?? 999999);
     const pb = Number(b.price_soles ?? 999999);
     return pa - pb;
@@ -203,10 +211,6 @@ function renderStoreItem(p) {
 
   const isFeatured = !!p.featured;
   const itemClass = isFeatured ? "store-item featured" : "store-item";
-
-  const hasNumeric = (p.price_soles !== null && p.price_soles !== undefined) || (p.price_usd !== null && p.price_usd !== undefined);
-  const priceClass = hasNumeric ? "store-price big" : "store-price";
-
   const bClass = badgeClassFromText(p.badge);
 
   return `
@@ -227,7 +231,7 @@ function renderStoreItem(p) {
           </div>
         </div>
 
-        <div class="${priceClass}">${priceLabel}</div>
+        <div class="store-price big">${priceLabel}</div>
       </div>
 
       <div class="store-desc">${desc}</div>
@@ -240,93 +244,55 @@ function renderStoreItem(p) {
 }
 
 function renderStore() {
-  const preview = document.getElementById("storePreview");
   const grid = document.getElementById("storeGrid");
-  if (!preview || !grid) return;
-
+  if (!grid) return;
   const filtered = applyStoreFilters(STORE_ITEMS);
-
-  const first = filtered.slice(0, 3);
-  preview.innerHTML = first.length
-    ? first.map(renderStoreItem).join("")
-    : `<article class="store-item"><div class="store-name">Sin resultados</div><div class="store-desc">Prueba otra categoría o cambia la búsqueda.</div></article>`;
 
   grid.innerHTML = filtered.length
     ? filtered.map(renderStoreItem).join("")
-    : `<article class="store-item"><div class="store-name">Sin resultados</div><div class="store-desc">No encontramos productos con esos filtros.</div></article>`;
+    : `<article class="store-item"><div class="store-name">Sin resultados</div><div class="store-desc">Prueba otra categoría o cambia la búsqueda.</div></article>`;
 }
 
 function setupStoreSearch() {
   const input = document.getElementById("storeSearch");
-  const inputM = document.getElementById("storeSearchModal");
+  if (!input) return;
 
-  if (input) {
-    input.addEventListener("input", () => {
-      storeQuery = input.value || "";
-      if (inputM) inputM.value = input.value;
-      renderStore();
-    });
-  }
-  if (inputM) {
-    inputM.addEventListener("input", () => {
-      storeQuery = inputM.value || "";
-      if (input) input.value = inputM.value;
-      renderStore();
-    });
-  }
-}
-
-async function fetchFirstOk(urls) {
-  let lastErr = null;
-  for (const u of urls) {
-    try {
-      const res = await fetch(`${u}?v=${Date.now()}`);
-      if (res.ok) return { url: u, json: await res.json() };
-      lastErr = new Error(`HTTP ${res.status} en ${u}`);
-    } catch (e) {
-      lastErr = e;
-    }
-  }
-  throw lastErr || new Error("No se pudo cargar store.json");
+  input.addEventListener("input", () => {
+    storeQuery = input.value || "";
+    renderStore();
+  });
 }
 
 async function loadStore() {
+  const grid = document.getElementById("storeGrid");
+  if (!grid) return; // solo en tienda.html
+
   const debug = document.getElementById("storeDebug");
 
   try {
-    // probamos ambas rutas (GitHub Pages a veces cambia la base)
-    const { url, json } = await fetchFirstOk(["./data/store.json", "/data/store.json"]);
+    const res = await fetch(`${dataUrl("store.json")}?v=${Date.now()}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
 
     STORE_ITEMS = Array.isArray(json) ? json : [];
-    if (!STORE_ITEMS.length) throw new Error(`store.json está vacío o no es array (${url})`);
+    if (!STORE_ITEMS.length) throw new Error("store.json vacío o inválido");
 
     const cats = getCategories(STORE_ITEMS);
-    renderFilters("storeFilters", cats);
-    renderFilters("storeFiltersModal", cats);
+    renderFilters(cats);
     setupStoreSearch();
     renderStore();
 
-    if (debug) {
-      debug.hidden = true;
-      debug.textContent = "";
-    }
+    if (debug) { debug.hidden = true; debug.textContent = ""; }
   } catch (e) {
-    const preview = document.getElementById("storePreview");
-    const grid = document.getElementById("storeGrid");
-
-    const fallback = `
+    grid.innerHTML = `
       <article class="store-item">
         <div class="store-name">Mini tienda no disponible</div>
-        <div class="store-desc">Error cargando <b>data/store.json</b>. Abajo verás el motivo.</div>
+        <div class="store-desc">No se pudo cargar <b>data/store.json</b>.</div>
         <a class="btn soft full" href="${waLink("Hola, quiero info de streaming. ¿Me pasas opciones?")}" target="_blank" rel="noreferrer">
           Pedir opciones por WhatsApp
         </a>
       </article>
     `;
-
-    if (preview) preview.innerHTML = fallback;
-    if (grid) grid.innerHTML = fallback;
-
     if (debug) {
       debug.hidden = false;
       debug.textContent = `ERROR: ${String(e?.message || e)}`;
@@ -334,38 +300,10 @@ async function loadStore() {
   }
 }
 
-function setupStoreModal() {
-  const modal = document.getElementById("storeModal");
-  const close = document.getElementById("storeClose");
-
-  const openers = [
-    document.getElementById("openStoreTop"),
-    document.getElementById("openStoreCard"),
-    document.getElementById("openStoreSection"),
-    document.getElementById("openStoreButton"),
-    document.getElementById("openStoreMobile"),
-  ].filter(Boolean);
-
-  function openModal() { if (modal) modal.hidden = false; }
-  function closeModal() { if (modal) modal.hidden = true; }
-
-  openers.forEach((btn) => btn.addEventListener("click", openModal));
-  if (close) close.addEventListener("click", closeModal);
-
-  if (modal) {
-    modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
-  }
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal && !modal.hidden) closeModal();
-  });
-}
-
-/* ===== init ===== */
+/* ===== Init ===== */
 setWhatsAppLinks();
 setYear();
 mobileMenu();
 copyMessage();
 loadPosts();
 loadStore();
-setupStoreModal();
