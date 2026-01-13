@@ -18,5 +18,17 @@
     "cta_url": "https://wa.me/51903477698?text=Hola%2C%20quiero%20consultar%20Canva%20Panel.",
     "image": "",
     "pinned": false
-  }
+  },
+  {
+  "date": "2026-01-12",
+  "tag": "Stock",
+  "title": "Canva Panel disponible",
+  "text": "Entrega rápida + soporte.\n\nPregunta por disponibilidad.",
+  "cta_text": "Pedir por WhatsApp",
+  "cta_url": "https://wa.me/51903477698?text=Hola%2C%20quiero%20Canva%20Panel.",
+  "cta2_text": "Ver tienda",
+  "cta2_url": "./pages/tienda.html",
+  "pinned": false
+}
+
 ]
