@@ -480,6 +480,43 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
     font-size:14px;
   }
 }
+/* ===== REFERENCIAS ===== */
+.refs-grid{
+  margin-top:32px;
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap:18px;
+}
+
+.refs-grid img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:16px;
+  cursor:pointer;
+  border:1px solid rgba(255,255,255,.10);
+  background:#0b1220;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.refs-grid img:hover{
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,0,0,.45);
+}
+
+/* CTA referencias */
+.refs-cta{
+  margin-top:40px;
+  text-align:center;
+}
+
+/* MÓVIL */
+@media (max-width: 900px){
+  .refs-grid img{
+    height:180px;
+  }
+}
+
 
 
 
