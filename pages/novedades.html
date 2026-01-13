@@ -42,18 +42,39 @@
     </div>
   </div>
 
-  <main class="section">
-    <div class="container">
-      <div class="section-head">
-        <h2>Novedades</h2>
-        <p>Se actualiza editando <b>data/posts.json</b>.</p>
+<main class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Novedades</h2>
+      <p>Se actualiza editando <b>data/posts.json</b> (agrega el post nuevo arriba).</p>
+    </div>
+
+    <!-- ✅ Barra PRO: filtros + buscador -->
+    <div class="news-toolbar">
+      <div class="news-filters" id="newsFilters">
+        <!-- chips dinámicos -->
       </div>
 
-      <div class="posts-grid" id="postsGrid">
-        <!-- Render JS -->
+      <div class="news-search">
+        <span>🔎</span>
+        <input id="newsSearch" type="text" placeholder="Buscar (ej: canva, crunchyroll, promo)..." />
       </div>
     </div>
-  </main>
+
+    <!-- ✅ Feed -->
+    <div class="posts-pro" id="postsGrid"></div>
+
+    <!-- ✅ Ver más -->
+    <div class="news-more">
+      <button class="btn soft" id="postsMore" type="button">Ver más</button>
+    </div>
+
+    <!-- ✅ Empty/Info -->
+    <div class="box" id="postsEmpty" style="display:none; margin-top:14px;">
+      <p>No hay novedades para mostrar con esos filtros.</p>
+    </div>
+  </div>
+</main>
 
   <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noreferrer" aria-label="WhatsApp">
     <span class="wa-ic">💬</span><span class="wa-txt">WhatsApp</span>
