@@ -167,10 +167,10 @@ function cardHTML(p){
         <h3>${title}</h3>
         <p>${text}</p>
 
-        <div class="post-actions">
-          ${ctaUrl ? `<a class="btn primary" href="${ctaUrl}" target="_blank" rel="noreferrer">${ctaText}</a>` : ""}
-          <a class="btn soft" href="../pages/tienda.html">Ver tienda</a>
-        </div>
+<div class="post-actions">
+  ${ctaUrl ? `<a class="btn primary" href="${ctaUrl}" target="_blank" rel="noreferrer">${ctaText}</a>` : ""}
+  ${p.cta2_url ? `<a class="btn soft" href="${p.cta2_url}" target="_blank" rel="noreferrer">${p.cta2_text || "Ver más"}</a>` : ""}
+</div>
       </div>
     </article>
   `;
@@ -458,5 +458,6 @@ function initReferencesLightbox(){
     if(e.key === "Escape" && !lb.hidden) close();
   });
 }
+
 
 
