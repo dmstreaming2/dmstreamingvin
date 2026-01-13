@@ -516,6 +516,58 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
     height:180px;
   }
 }
+/* ===== LIGHTBOX (ZOOM REFERENCIAS) ===== */
+.lightbox{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(10px);
+}
+
+.lightbox[hidden]{ display:none; }
+
+.lightbox-img{
+  max-width: min(1100px, 96vw);
+  max-height: 88vh;
+  width:auto;
+  height:auto;
+  object-fit: contain;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.03);
+  box-shadow: 0 30px 90px rgba(0,0,0,.55);
+}
+
+.lightbox-close{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:44px;
+  height:44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+  color: rgba(233,238,251,.95);
+  font-weight: 1000;
+  cursor:pointer;
+}
+
+.lightbox-close:hover{
+  background: rgba(255,255,255,.10);
+}
+
+/* “Tap hint” en móvil: deja más espacio */
+@media (max-width: 900px){
+  .lightbox{ padding:12px; }
+  .lightbox-img{ max-height: 84vh; border-radius: 16px; }
+  .lightbox-close{ width:42px; height:42px; border-radius: 13px; }
+}
+
 
 
 
