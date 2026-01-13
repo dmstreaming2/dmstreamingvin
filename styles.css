@@ -402,4 +402,30 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
     0 0 12px rgba(94,240,255,.35),
     0 0 22px rgba(74,163,255,.25);
 }
+/* ===== LOGO CON IMAGEN ===== */
+.logo-img{
+  width:36px;
+  height:36px;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  display:grid;
+  place-items:center;
+}
+.logo-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover; /* si tu logo es cuadrado */
+  display:block;
+}
+
+/* Si tu logo es tipo "isotipo" con fondo transparente y quieres que no lo recorte:
+   cambia object-fit:cover por contain.
+*/
+@media (max-width: 900px){
+  .logo-img{ width:32px; height:32px; border-radius:11px; }
+}
+
 
