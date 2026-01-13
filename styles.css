@@ -443,6 +443,44 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
     gap:8px; /* reduce espacio entre logo y texto */
   }
 }
+/* Texto de marca (simple) */
+.brand-name-text{
+  font-weight: 900;
+  font-size: 16px;
+  color: rgba(233,238,251,.95);
+}
+
+/* Logo con tamaño fijo SIEMPRE */
+.logo-img{
+  width:36px;
+  height:36px;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  display:grid;
+  place-items:center;
+  flex: 0 0 auto;
+}
+.logo-img img{
+  width:100%;
+  height:100%;
+  object-fit: contain; /* NO se recorta y no se agranda */
+  display:block;
+}
+
+/* Móvil: más pequeño */
+@media (max-width: 900px){
+  .logo-img{
+    width:24px;
+    height:24px;
+    border-radius:8px;
+  }
+  .brand-name-text{
+    font-size:14px;
+  }
+}
+
 
 
 
