@@ -427,5 +427,22 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
 @media (max-width: 900px){
   .logo-img{ width:32px; height:32px; border-radius:11px; }
 }
+/* ===== AJUSTE LOGO EN MÓVIL ===== */
+@media (max-width: 900px){
+  .logo-img{
+    width:26px;
+    height:26px;
+    border-radius:8px;
+  }
+
+  .logo-img img{
+    object-fit:contain; /* evita que se vea grande o cortado */
+  }
+
+  .brand{
+    gap:8px; /* reduce espacio entre logo y texto */
+  }
+}
+
 
 
