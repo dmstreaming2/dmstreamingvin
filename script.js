@@ -264,4 +264,49 @@ document.addEventListener("DOMContentLoaded", ()=>{
   initYear();
   initPostsPage();
   initStorePage();
+  initReferencesLightbox(); // ✅ zoom referencias
 });
+/* =========================
+   LIGHTBOX REFERENCIAS
+========================= */
+function initReferencesLightbox(){
+  const lb = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lightboxImg");
+  const lbClose = document.getElementById("lightboxClose");
+  if(!lb || !lbImg || !lbClose) return;
+
+  // Todas las imágenes dentro de la grilla de referencias
+  const imgs = document.querySelectorAll(".refs-grid img");
+  if(!imgs || imgs.length === 0) return;
+
+  function open(src, alt){
+    lbImg.src = src;
+    lbImg.alt = alt || "Referencia ampliada";
+    lb.hidden = false;
+    document.body.style.overflow = "hidden"; // evita scroll en móvil
+  }
+
+  function close(){
+    lb.hidden = true;
+    lbImg.src = "";
+    document.body.style.overflow = "";
+  }
+
+  imgs.forEach(img=>{
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", ()=> open(img.src, img.alt));
+  });
+
+  lbClose.addEventListener("click", close);
+
+  // Cerrar tocando el fondo
+  lb.addEventListener("click", (e)=>{
+    if(e.target === lb) close();
+  });
+
+  // Cerrar con ESC
+  document.addEventListener("keydown", (e)=>{
+    if(e.key === "Escape" && !lb.hidden) close();
+  });
+}
+
