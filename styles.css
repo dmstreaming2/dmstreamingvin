@@ -724,6 +724,10 @@ h1{font-size:46px; line-height:1.05; margin:14px 0 12px}
   .news-search{ width:100%; }
   .news-search input{ min-width: 0; width:100%; }
 }
+html{
+  scroll-behavior: smooth;
+}
+
 
 
 
